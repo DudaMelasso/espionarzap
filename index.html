@@ -402,17 +402,18 @@
   </script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      const params = new URLSearchParams(window.location.search);
-      const celular = params.get('celular');
-      if (celular && celular.length >= 12) {
-        const formattedNumber = `+${celular.slice(0, 2)} (${celular.slice(2, 4)}) ${celular.slice(4, 9)}-${celular.slice(9)}`;
-        const userNumberElement = document.getElementById('user-number');
-        if (userNumberElement) {
-          userNumberElement.textContent = formattedNumber;
-          Cookies.set('userFormattedNumber', formattedNumber, { expires: 7 });
-        }
-      }
-    });
+  const params = new URLSearchParams(window.location.search);
+  const celular = params.get('celular');
+  if (celular && celular.length >= 12) {
+    const formattedNumber = `(${celular.slice(2, 4)}) ${celular.slice(4, 9)}-${celular.slice(9)}`;
+    const userNumberElement = document.getElementById('user-number');
+    if (userNumberElement) {
+      userNumberElement.textContent = formattedNumber;
+      Cookies.set('userFormattedNumber', formattedNumber, { expires: 7 });
+    }
+  }
+});
+
   </script>
   <script>
     $(document).ready(function(){
